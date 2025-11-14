@@ -58,8 +58,10 @@ npm run build
 I file ottimizzati saranno disponibili in:
 
 /dist
-##📄 Licenza
+```
+---
+# 📄 Licenza
 
-Questo progetto è distribuito sotto licenza MIT.
+Questo progetto è distribuito sotto licenza MIT 👉 https://opensource.org/licenses/MIT.
 Puoi utilizzarlo liberamente per scopi personali o professionali.
 
