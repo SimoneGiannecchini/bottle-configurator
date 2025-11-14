@@ -9,9 +9,9 @@ Gli utenti possono scegliere il colore di **tappo**, **corpo** e **fondo**, visu
 ### 🎨 Personalizzazione colori
 - 10 colori predefiniti attentamente selezionati  
 - Selezione in tre step guidati:  
-  1. Colore del tappo  
-  2. Colore del corpo  
-  3. Colore del fondo  
+  1  Colore del tappo  
+  2  Colore del corpo  
+  3  Colore del fondo  
 
 ### 🖼 Anteprima in tempo reale
 Ogni modifica aggiorna istantaneamente l’anteprima della bottiglia grazie ad una gestione dinamica degli stili CSS.
