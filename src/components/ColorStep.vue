@@ -11,10 +11,14 @@
         v-for="c in colors"
         :key="c.id"
         class="color-swatch"
-        :style="{ backgroundColor: c.hex }"
         :class="{ active: modelValue === c.id }"
         @click="$emit('update:modelValue', c.id)"
       >
+        <span
+          class="swatch-circle"
+          :style="{ background: c.bg || c.hex }"
+        ></span>
+
         <span class="swatch-name">{{ c.name }}</span>
       </button>
     </div>
@@ -32,5 +36,7 @@ defineProps({
 
 defineEmits(['update:modelValue'])
 </script>
+
+<style scoped src="../styles/ColorStep.css"></style>
 
 

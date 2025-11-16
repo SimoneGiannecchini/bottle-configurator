@@ -56,17 +56,68 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 
 const palette = [
-  { id: 'bianco-ghiaccio', name: 'Bianco Ghiaccio', hex: '#f5f7fb' },
-  { id: 'sabbia', name: 'Sabbia', hex: '#e4d4c8' },
-  { id: 'ambra', name: 'Ambra', hex: '#d97757' },
-  { id: 'rosso-coral', name: 'Rosso Coral', hex: '#f97373' },
-  { id: 'terracotta', name: 'Terracotta', hex: '#b45337' },
-  { id: 'verde-salvia', name: 'Verde Salvia', hex: '#a3b18a' },
-  { id: 'verde-foresta', name: 'Verde Foresta', hex: '#2f5d46' },
-  { id: 'blu-oceano', name: 'Blu Oceano', hex: '#2563eb' },
-  { id: 'blu-petrolio', name: 'Blu Petrolio', hex: '#1e3a5f' },
-  { id: 'grafite', name: 'Grafite', hex: '#111827' }
+  {
+    id: 'neon-lime',
+    name: 'Neon Lime',
+    hex: '#C6FF00',
+    bg: 'linear-gradient(135deg, #C6FF00, #76FF03)'
+  },
+  {
+    id: 'electric-blue',
+    name: 'Electric Blue',
+    hex: '#2979FF',
+    bg: 'linear-gradient(135deg, #2979FF, #00B0FF)'
+  },
+  {
+    id: 'coral-punch',
+    name: 'Coral Punch',
+    hex: '#FF5A7A',
+    bg: 'linear-gradient(135deg, #FF5A7A, #FF2D55)'
+  },
+  {
+    id: 'aqua-fresh',
+    name: 'Aqua Fresh',
+    hex: '#00E5FF',
+    bg: 'linear-gradient(135deg, #00E5FF, #1DE9B6)'
+  },
+  {
+    id: 'purple-vibe',
+    name: 'Purple Vibe',
+    hex: '#9C27B0',
+    bg: 'linear-gradient(135deg, #9C27B0, #E040FB)'
+  },
+  {
+    id: 'sunset-orange',
+    name: 'Sunset Orange',
+    hex: '#FF9100',
+    bg: 'linear-gradient(135deg, #FF9100, #FF6D00)'
+  },
+  {
+    id: 'mint-sport',
+    name: 'Mint Sport',
+    hex: '#69F0AE',
+    bg: 'linear-gradient(135deg, #B9F6CA, #69F0AE)'
+  },
+  {
+    id: 'cyber-yellow',
+    name: 'Cyber Yellow',
+    hex: '#FFD600',
+    bg: 'linear-gradient(135deg, #FFEA00, #FFD600)'
+  },
+  {
+    id: 'magenta-pop',
+    name: 'Magenta Pop',
+    hex: '#FF4081',
+    bg: 'linear-gradient(135deg, #FF4081, #F50057)'
+  },
+  {
+    id: 'graphite',
+    name: 'Graphite',
+    hex: '#263238',
+    bg: 'linear-gradient(135deg, #263238, #000000)'
+  }
 ]
+
 
 const route = useRoute()
 

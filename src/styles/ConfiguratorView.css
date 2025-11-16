@@ -1,0 +1,133 @@
+.config-page {
+    padding: 3rem 1.5rem 4rem;
+  }
+  
+  .config-layout {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: flex;
+    gap: 2.5rem;
+    align-items: flex-start; 
+  }
+  
+  .config-main {
+    flex: 1 1 60%;
+  }
+  
+  .config-header h1 {
+    margin-bottom: 0.5rem;
+  }
+  
+  .config-card {
+    margin-top: 1.75rem;
+    background: #ffffff;
+    border-radius: 1.5rem;
+    padding: 1.75rem 1.5rem 1.5rem;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+  }
+  
+  .config-footer {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .config-footer-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .step-indicator {
+    display: flex;
+    gap: 0.45rem;
+  }
+  
+  .step-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: #e5e7eb;
+  }
+  
+  .step-dot--active {
+    background: #111827;
+  }
+  
+  .step-dot--done {
+    background: #4ade80;
+  }
+  
+  .secondary-btn,
+  .primary-btn {
+    border: none;
+    cursor: pointer;
+    border-radius: 999px;
+    padding: 0.75rem 1.9rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.13);
+  }
+  
+  .secondary-btn {
+    background: #f3f4f6;
+    color: #111827;
+  }
+  
+  .primary-btn {
+    background: linear-gradient(135deg, #2979ff, #00b0ff);
+    color: #ffffff;
+  }
+  
+  .secondary-btn:hover:not(:disabled),
+  .primary-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.22);
+  }
+  
+  .primary-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #2563eb, #00a2ff);
+  }
+  
+  .secondary-btn:disabled,
+  .primary-btn:disabled {
+    opacity: 0.45;
+    cursor: default;
+    box-shadow: none;
+    transform: none;
+  }
+  
+  @media (max-width: 900px) {
+    .config-layout {
+      flex-direction: column;
+    }
+  
+    .config-footer {
+      flex-direction: column-reverse;
+      align-items: stretch;
+    }
+  
+    .config-footer-right {
+      justify-content: space-between;
+    }
+  
+    .secondary-btn,
+    .primary-btn {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  
+.config-layout > .preview {
+  margin-top: 8.25rem;  
+}
+
+@media (max-width: 900px) {
+  .config-layout > .preview {
+    margin-top: 1.5rem; 
+  }
+}

@@ -30,6 +30,7 @@
             </button>
 
             <div class="config-footer-right">
+              
               <div class="step-indicator">
                 <div
                   v-for="(step, index) in 3"
@@ -66,7 +67,11 @@
         </div>
       </div>
 
-      <BottlePreview :colors="previewColors" />
+      
+      <BottlePreview
+        :colors="previewColors"
+        :active-step="currentStep + 1"  
+      />
     </div>
   </section>
 </template>
@@ -79,41 +84,95 @@ import ColorStep from '../components/ColorStep.vue'
 
 const router = useRouter()
 
-// 10 colori disponibili
+
 const palette = [
-  { id: 'bianco-ghiaccio', name: 'Bianco Ghiaccio', hex: '#f5f7fb' },
-  { id: 'sabbia', name: 'Sabbia', hex: '#e4d4c8' },
-  { id: 'ambra', name: 'Ambra', hex: '#d97757' },
-  { id: 'rosso-coral', name: 'Rosso Coral', hex: '#f97373' },
-  { id: 'terracotta', name: 'Terracotta', hex: '#b45337' },
-  { id: 'verde-salvia', name: 'Verde Salvia', hex: '#a3b18a' },
-  { id: 'verde-foresta', name: 'Verde Foresta', hex: '#2f5d46' },
-  { id: 'blu-oceano', name: 'Blu Oceano', hex: '#2563eb' },
-  { id: 'blu-petrolio', name: 'Blu Petrolio', hex: '#1e3a5f' },
-  { id: 'grafite', name: 'Grafite', hex: '#111827' }
+  {
+    id: 'neon-lime',
+    name: 'Neon Lime',
+    hex: '#C6FF00',
+    bg: 'linear-gradient(135deg, #C6FF00, #76FF03)'
+  },
+  {
+    id: 'electric-blue',
+    name: 'Electric Blue',
+    hex: '#2979FF',
+    bg: 'linear-gradient(135deg, #2979FF, #00B0FF)'
+  },
+  {
+    id: 'coral-punch',
+    name: 'Coral Punch',
+    hex: '#FF5A7A',
+    bg: 'linear-gradient(135deg, #FF5A7A, #FF2D55)'
+  },
+  {
+    id: 'aqua-fresh',
+    name: 'Aqua Fresh',
+    hex: '#00E5FF',
+    bg: 'linear-gradient(135deg, #00E5FF, #1DE9B6)'
+  },
+  {
+    id: 'purple-vibe',
+    name: 'Purple Vibe',
+    hex: '#9C27B0',
+    bg: 'linear-gradient(135deg, #9C27B0, #E040FB)'
+  },
+  {
+    id: 'sunset-orange',
+    name: 'Sunset Orange',
+    hex: '#FF9100',
+    bg: 'linear-gradient(135deg, #FF9100, #FF6D00)'
+  },
+  {
+    id: 'mint-sport',
+    name: 'Mint Sport',
+    hex: '#69F0AE',
+    bg: 'linear-gradient(135deg, #B9F6CA, #69F0AE)'
+  },
+  {
+    id: 'cyber-yellow',
+    name: 'Cyber Yellow',
+    hex: '#FFD600',
+    bg: 'linear-gradient(135deg, #FFEA00, #FFD600)'
+  },
+  {
+    id: 'magenta-pop',
+    name: 'Magenta Pop',
+    hex: '#FF4081',
+    bg: 'linear-gradient(135deg, #FF4081, #F50057)'
+  },
+  {
+    id: 'graphite',
+    name: 'Graphite',
+    hex: '#263238',
+    bg: 'linear-gradient(135deg, #263238, #000000)'
+  }
 ]
 
-// ordine degli step: tappo, corpo, fondo
+// ordine degli step: 0 = tappo, 1 = corpo, 2 = fondo
 const stepKeys = ['cap', 'body', 'base']
 
 const stepConfigs = [
   {
     key: 'cap',
     title: 'Scegli il colore del tappo',
-    subtitle: 'Il tappo è il primo dettaglio che si nota: rendilo iconico e riconoscibile.'
+    subtitle:
+      'Il tappo è il primo dettaglio che si nota: rendilo iconico e riconoscibile.'
   },
   {
     key: 'body',
     title: 'Scegli il colore del corpo',
-    subtitle: 'Il corpo racconta il carattere del brand: neutro, vivace o intenso?'
+    subtitle:
+      'Il corpo racconta il carattere del brand: neutro, vivace o intenso?'
   },
   {
     key: 'base',
     title: 'Scegli il colore del fondo',
-    subtitle: 'Il fondo chiude la bottiglia e ne definisce la stabilità, visivamente e fisicamente.'
+    subtitle:
+      'Il fondo chiude la bottiglia e ne definisce la stabilità, visivamente e fisicamente.'
   }
 ]
 
+// 0 = tappo, 1 = corpo, 2 = fondo
 const currentStep = ref(0)
 
 const selections = reactive({
@@ -124,6 +183,7 @@ const selections = reactive({
 
 const currentStepConfig = computed(() => stepConfigs[currentStep.value])
 
+// v-model del componente ColorStep
 const currentColorId = computed({
   get() {
     const key = stepKeys[currentStep.value]
@@ -141,13 +201,16 @@ const getHexById = (id) => {
   return color ? color.hex : null
 }
 
+// colori da mostrare in anteprima
 const previewColors = computed(() => ({
   cap: getHexById(selections.cap),
   body: getHexById(selections.body),
   base: getHexById(selections.base)
 }))
 
-const canSubmit = computed(() => selections.cap && selections.body && selections.base)
+const canSubmit = computed(
+  () => selections.cap && selections.body && selections.base
+)
 
 function goNext() {
   if (currentStep.value < 2 && currentColorId.value) {
@@ -175,4 +238,4 @@ function submitConfig() {
 }
 </script>
 
-
+<style scoped src="../styles/ConfiguratorView.css"></style>

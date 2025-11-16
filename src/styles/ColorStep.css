@@ -1,0 +1,142 @@
+.color-step {
+  margin-bottom: 1.5rem;
+}
+
+.step-header h2 {
+  margin: 0.25rem 0;
+}
+
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1.2rem 0.75rem;
+  justify-items: center;
+  margin-top: 1.5rem;
+}
+
+.color-swatch {
+  background: transparent;
+  border: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+  cursor: pointer;
+  font: inherit;
+  outline: none;
+}
+
+.color-swatch:focus,
+.color-swatch:focus-visible {
+  outline: none;
+}
+
+.swatch-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 999px; 
+  position: relative;
+  box-shadow:
+    0 6px 16px rgba(15, 23, 42, 0.22),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.color-swatch.active .swatch-circle,
+.color-swatch:hover .swatch-circle {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow:
+    0 10px 26px rgba(15, 23, 42, 0.3),
+    inset 0 0 0 2px rgba(255, 255, 255, 0.6);
+}
+
+.color-swatch.active .swatch-circle::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 999px;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.25);
+}
+
+.swatch-name {
+  font-size: 0.8rem;
+  color: #111827;
+  text-align: center;
+}
+.step-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0 1rem;
+}
+
+.step-btn {
+  border: none;
+  font-weight: 600;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease, opacity 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-size: 0.9rem;
+}
+.step-btn.back {
+  padding: 0.6rem 1.4rem;
+  background: #e5e7eb;
+  color: #111;
+}
+
+.step-btn.next {
+  padding: 0.6rem 1.8rem;
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  color: #ffffff;
+}
+
+.step-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.step-btn.back:hover {
+  background: #e5e7eb;
+}
+
+
+
+@media (max-width: 768px) {
+
+  .color-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.1rem 0.7rem;
+    margin: 1.2rem 0 1.4rem;
+  }
+
+  .swatch-circle {
+    width: 60px;
+    height: 60px; 
+  }
+
+  .swatch-name {
+    font-size: 0.75rem;
+  }
+
+  
+  .step-buttons {
+    justify-content: center;
+    margin-top: 0.8rem;
+    gap: 0.6rem;
+  }
+
+  .step-btn {
+    padding: 0.45rem 0.9rem;   
+    font-size: 0.8rem;
+    min-width: 90px;          
+  }
+
+  .step-btn.back,
+  .step-btn.next {
+    width: auto;
+    flex: 0 0 auto;
+  }
+}

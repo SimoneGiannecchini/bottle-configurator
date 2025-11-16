@@ -1,20 +1,20 @@
 <template>
   <aside class="preview">
     <div class="preview-card">
-      <p class="preview-label">Anteprima bottiglia</p>
+      <p class="preview-label">ANTEPRIMA BOTTIGLIA</p>
 
+      <!-- BOTTIGLIA -->
       <div class="preview-bottle-wrapper">
         <div class="bottle-shadow"></div>
 
         <div class="bottle">
-
           <!-- tappo -->
           <div
             class="bottle-cap"
             :style="{ backgroundColor: colors.cap || '#e5e7eb' }"
           ></div>
 
-          <!-- corpo unico: collo + corpo insieme -->
+          <!-- corpo -->
           <div
             class="bottle-body"
             :style="{ backgroundColor: colors.body || '#f9fafb' }"
@@ -25,48 +25,46 @@
             class="bottle-base"
             :style="{ backgroundColor: colors.base || '#e5e7eb' }"
           ></div>
-
         </div>
       </div>
 
+      <!-- LEGENDA STEP -->
       <div class="preview-legend">
-        <div class="preview-chip">
-          <span class="chip-dot" :style="{ backgroundColor: colors.cap }"></span>
-          <span>Tappo</span>
+        <div class="legend-dots">
+          <span class="dot" :class="{ 'is-active': Number(activeStep) === 1 }"></span>
+          <span class="dot" :class="{ 'is-active': Number(activeStep) === 2 }"></span>
+          <span class="dot" :class="{ 'is-active': Number(activeStep) === 3 }"></span>
         </div>
-
-        <div class="preview-chip">
-          <span class="chip-dot" :style="{ backgroundColor: colors.body }"></span>
-          <span>Corpo</span>
-        </div>
-
-        <div class="preview-chip">
-          <span class="chip-dot" :style="{ backgroundColor: colors.base }"></span>
-          <span>Fondo</span>
+        <div class="legend-labels">
+          <span :class="{ 'is-active': Number(activeStep) === 1 }">Tappo</span>
+          <span :class="{ 'is-active': Number(activeStep) === 2 }">Corpo</span>
+          <span :class="{ 'is-active': Number(activeStep) === 3 }">Fondo</span>
         </div>
       </div>
 
       <p class="preview-note">
         I colori sono indicativi e possono variare leggermente rispetto al prodotto reale.
       </p>
-
     </div>
   </aside>
 </template>
 
 <script setup>
-defineProps({
+const { colors, activeStep } = defineProps({
   colors: {
     type: Object,
     default: () => ({
-      cap: null,
-      body: null,
-      base: null
+      cap: '#e5e7eb',
+      body: '#f9fafb',
+      base: '#e5e7eb'
     })
+  },
+  activeStep: {
+    type: [Number, String],
+    default: 1
   }
 })
 </script>
 
+
 <style scoped src="../styles/BottlePreview.css"></style>
-
-
